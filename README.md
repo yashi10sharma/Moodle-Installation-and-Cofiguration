@@ -22,43 +22,45 @@ Apache2
 
 Steps for installing Moodle:-
 
-=> STEP 0 : Identify matching versions of PHP, Mysql
+=>STEP 0 : Identify matching versions of PHP, Mysql
+    
     We have already mentioned the versions that we used, one can refer to following link for further updates 
     https://docs.moodle.org/dev/Moodle_3.7_release_notes
 
-=> STEP 1 : Ubuntu setup
+=>STEP 1 : Ubuntu setup
+    
     Linux setup on any cloud or local platform
 
-=> STEP 2 : Install Apache, MySQL,PHP
+=>STEP 2 : Install Apache, MySQL,PHP
 
     For Apache2:
 >>$sudo apt install apache2
     
     For PHP:
-    >>$sudo apt-get install software-properties-common
-    >>$sudo add-apt-repository ppa:ondrej/php
-    >>$sudo apt-get update
-    >>$sudo apt-get install php7.1
+>>$sudo apt-get install software-properties-common
+>>$sudo add-apt-repository ppa:ondrej/php
+>>$sudo apt-get update
+>>$sudo apt-get install php7.1
 
     For Mysql:
-    >>$ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
-    >>$sudo apt-get update
-    >>$sudo apt install mysql-server-5.6 mysql-client-5.6
+>>$ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
+>>$sudo apt-get update
+>>$sudo apt install mysql-server-5.6 mysql-client-5.6
     
-=> STEP 3 : Install Additional Softwares
+=>STEP 3 : Install Additional Softwares
     
     For antivirus sofware
-    >>$sudo apt install graphviz aspell ghostscript clamav
+>>$sudo apt install graphviz aspell ghostscript clamav
     (this step can be skipped)
     
     For PHP 
-    >>$sudo apt install php7.1-pspell php7.1-curl php7.1-gd php7.1-intl php7.1-mysql php7.1-xml php7.1-xmlrpc php7.1-ldap php7.1-zip php7.1-soap php7.1-mbstring
+>>$sudo apt install php7.1-pspell php7.1-curl php7.1-gd php7.1-intl php7.1-mysql php7.1-xml php7.1-xmlrpc php7.1-ldap php7.1-zip php7.1-soap php7.1-mbstring
 
     Restart apache2
-    >>$sudo service apache2 restart
+>>$sudo service apache2 restart
 
     For installing git:
-    >>$sudo apt install git
+>>$sudo apt install git
 
 
        
