@@ -14,11 +14,11 @@ MOODLE stands for Modular Object Oriented Dynamic Learning Environment
 
 Here are the steps to install moodle for the system with following specifications:
 
-Ubuntu 16.04
-Moodle Version: 3.7
-MySQL Version: 5.6
-PHP Version: 7.1
-Apache2
+    Ubuntu 16.04
+    Moodle Version: 3.7
+    MySQL Version: 5.6
+    PHP Version: 7.1
+    Apache2
 
 Steps for installing Moodle:-
 
@@ -69,7 +69,89 @@ Steps for installing Moodle:-
     
     $sudo apt install git
 
-$sudo apt install git
+=>STEP 4 : Download Moodle
 
+>>Cloning github repository
+
+    $sudo git clone git://git.moodle.org/moodle.git
+    
+>>Creating a branch to Track particular version of moodle
+
+    #cd moodle
+    #sudo git branch –a
+    #sudo git branch –track MOODLE_37_STABLE origin/MOODLE_37_STABLE
+    #sudo git checkout MOODLE_37_STABLE
+    
+>>Removing the file index.html
+
+    #cd /var/www/html
+    #ls
+    #sudo rm index.html
+    #ls
+
+=> STEP 5 : Giving required permissions
+
+    #cd moodle/
+    #sudo cp * -R /var/www/html
+    cd ..
+
+    $sudo mkdir /var/moodledata
+
+    $sudo chown -R www-data /var/moodledata    
+
+    $sudo chmod -R 777 /var/moodledata
+    $sudo chmod -R 0755 /var/www/html
+    $sudo chmod -R 777 /var/www/html
+
+=> STEP 6 : Setup MySQL server 
+
+>>Go to root user
+
+    $sudo su
+
+>>Run MySQL
+
+    mysql5.6 –u root –p
+    enter password
+
+>>Create Database
+
+    CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+>>Create User
+
+    CREATE USER 'moodlex'@'localhost' IDENTIFIED BY 'password'; 
+    you can take any user name and password 
+    
+>>Grant Permissions to the user
+
+    GRANT SELECT, INSERT, UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP, INDEX,ALTER ON moodle.* TO 'moodlex'@'localhost' IDENTIFIED BY 'password';
+    
+>>Convert Password to hash code and save the output somewhere safe
+
+    SELECT PASSWORD(‘password’);
+
+=> STEP 7 : Complete the setup
+
+>>Open Browser and go to http://IP ADDRESS OF SERVER/ 
+
+>>Follow the prompts:-
+>>Change path for moodledata: /var/moodledata
+>>Database type: mysqli
+>>Host server: localhost
+>>Database: write your database name that you mentioned in Mysql setup 
+>>User: <Useername_same_as_you_created_in_mysql_setup>
+>>Passsword: <password>
+
+If some unicode related error shows up
+
+    SET GLOBAL innodb_file_format = barracuda;
+    SET GLOBAL innodb_file_per_table = 1;
+    SET GLOBAL innodb_large_prefix = 'on'
+
+Further, Create site administration account:-
+
+>>Create your moodle user account which will have all site administration permissions
+>>Password you choose has to meet certain validations 
        
        
