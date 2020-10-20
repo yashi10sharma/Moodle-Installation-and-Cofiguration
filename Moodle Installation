@@ -1,34 +1,143 @@
 Here are the steps to install moodle for the system with following specifications:
 
-Ubuntu 16.04
-Moodle Version: 3.7
-MySQL Version: 5.6
-PHP Version: 7.1
-Apache2
+    Ubuntu 16.04
+    Moodle Version: 3.7
+    MySQL Version: 5.6
+    PHP Version: 7.1
+    Apache2
 
 Steps for installing Moodle:-
 
-=> STEP 0 : Identify matching versions of PHP, Mysql 
-    we have already mentioned the versions that we used, one can refer to following link for further updates 
+=>STEP 0 : Identify matching versions of PHP, Mysql
+    
+    We have already mentioned the versions that we used, one can refer to following link for further updates 
     https://docs.moodle.org/dev/Moodle_3.7_release_notes
 
-=> STEP 1 : Ubuntu setup
+=>STEP 1 : Ubuntu setup
+    
     Linux setup on any cloud or local platform
 
-=> STEP 2 : Install Apache, MySQL,PHP
+=>STEP 2 : Install Apache, MySQL,PHP
 
-    For Apache2:
-    >>$sudo apt install apache2
+>>For Apache2:
     
-    For PHP:
-    >>$sudo apt-get install software-properties-common
-    >>$sudo add-apt-repository ppa:ondrej/php
-    >>$sudo apt-get update
-    >>$sudo apt-get install php7.1
+    $sudo apt install apache2
+    
+>>For PHP:
+    
+    $sudo apt-get install software-properties-common
+    $sudo add-apt-repository ppa:ondrej/php
+    $sudo apt-get update
+    $sudo apt-get install php7.1
 
-    For Mysql:
-    >>$ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
-    >>$sudo apt-get update
-    >>$sudo apt install mysql-server-5.6 mysql-client-5.6
+>>For Mysql:
     
+    $sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
+    $sudo apt-get update
+    $sudo apt install mysql-server-5.6 mysql-client-5.6
+    
+=>STEP 3 : Install Additional Softwares
+    
+>>For antivirus sofware
+    
+    $sudo apt install graphviz aspell ghostscript clamav
+    (this step can be skipped)
+    
+>>For PHP 
+    
+    $sudo apt install php7.1-pspell php7.1-curl php7.1-gd php7.1-intl php7.1-mysql php7.1-xml php7.1-xmlrpc php7.1-ldap php7.1-zip php7.1-soap php7.1-mbstring
+
+>>Restart apache2
+
+    $sudo service apache2 restart
+
+>>For installing git:
+    
+    $sudo apt install git
+
+=>STEP 4 : Download Moodle
+
+>>Cloning github repository
+
+    $sudo git clone git://git.moodle.org/moodle.git
+    
+>>Creating a branch to Track particular version of moodle
+
+    #cd moodle
+    #sudo git branch –a
+    #sudo git branch –track MOODLE_37_STABLE origin/MOODLE_37_STABLE
+    #sudo git checkout MOODLE_37_STABLE
+    
+>>Removing the file index.html
+
+    #cd /var/www/html
+    #ls
+    #sudo rm index.html
+    #ls
+
+=> STEP 5 : Giving required permissions
+
+    #cd moodle/
+    #sudo cp * -R /var/www/html
+    cd ..
+
+    $sudo mkdir /var/moodledata
+
+    $sudo chown -R www-data /var/moodledata    
+
+    $sudo chmod -R 777 /var/moodledata
+    $sudo chmod -R 0755 /var/www/html
+    $sudo chmod -R 777 /var/www/html
+
+=> STEP 6 : Setup MySQL server 
+
+>>Go to root user
+
+    $sudo su
+
+>>Run MySQL
+
+    mysql5.6 –u root –p
+    enter password
+
+>>Create Database
+
+    CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+>>Create User
+
+    CREATE USER 'moodlex'@'localhost' IDENTIFIED BY 'password'; 
+    you can take any user name and password 
+    
+>>Grant Permissions to the user
+
+    GRANT SELECT, INSERT, UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP, INDEX,ALTER ON moodle.* TO 'moodlex'@'localhost' IDENTIFIED BY 'password';
+    
+>>Convert Password to hash code and save the output somewhere safe
+
+    SELECT PASSWORD(‘password’);
+
+=> STEP 7 : Complete the setup
+
+>>Open Browser and go to http://IP ADDRESS OF SERVER/ 
+
+>>Follow the prompts:-
+>>Change path for moodledata: /var/moodledata
+>>Database type: mysqli
+>>Host server: localhost
+>>Database: write your database name that you mentioned in Mysql setup 
+>>User: <Useername_same_as_you_created_in_mysql_setup>
+>>Passsword: <password>
+
+If some unicode related error shows up
+
+    SET GLOBAL innodb_file_format = barracuda;
+    SET GLOBAL innodb_file_per_table = 1;
+    SET GLOBAL innodb_large_prefix = 'on'
+
+Further, Create site administration account:-
+
+>>Create your moodle user account which will have all site administration permissions
+>>Password you choose has to meet certain validations 
+
     
