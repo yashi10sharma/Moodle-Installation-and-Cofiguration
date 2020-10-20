@@ -33,35 +33,43 @@ Steps for installing Moodle:-
 
 =>STEP 2 : Install Apache, MySQL,PHP
 
-    For Apache2:
->>$sudo apt install apache2
+>>For Apache2:
     
-    For PHP:
->>$sudo apt-get install software-properties-common
->>$sudo add-apt-repository ppa:ondrej/php
->>$sudo apt-get update
->>$sudo apt-get install php7.1
+    $sudo apt install apache2
+    
+>>For PHP:
+    
+    $sudo apt-get install software-properties-common
+    $sudo add-apt-repository ppa:ondrej/php
+    $sudo apt-get update
+    $sudo apt-get install php7.1
 
-    For Mysql:
->>$ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
->>$sudo apt-get update
->>$sudo apt install mysql-server-5.6 mysql-client-5.6
+>>For Mysql:
+    
+    $ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
+    $sudo apt-get update
+    $sudo apt install mysql-server-5.6 mysql-client-5.6
     
 =>STEP 3 : Install Additional Softwares
     
-    For antivirus sofware
->>$sudo apt install graphviz aspell ghostscript clamav
+>>For antivirus sofware
+    
+    $sudo apt install graphviz aspell ghostscript clamav
     (this step can be skipped)
     
-    For PHP 
->>$sudo apt install php7.1-pspell php7.1-curl php7.1-gd php7.1-intl php7.1-mysql php7.1-xml php7.1-xmlrpc php7.1-ldap php7.1-zip php7.1-soap php7.1-mbstring
+>>For PHP 
+    
+    $sudo apt install php7.1-pspell php7.1-curl php7.1-gd php7.1-intl php7.1-mysql php7.1-xml php7.1-xmlrpc php7.1-ldap php7.1-zip php7.1-soap php7.1-mbstring
 
-    Restart apache2
->>$sudo service apache2 restart
+>>Restart apache2
 
-    For installing git:
->>$sudo apt install git
+    $sudo service apache2 restart
 
+>>For installing git:
+    
+    $sudo apt install git
+
+$sudo apt install git
 
        
        
