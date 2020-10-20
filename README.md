@@ -12,3 +12,7 @@ Why Moodle?
 
 MOODLE stands for Modular Object Oriented Dynamic Learning Environment
 
+STEP 2 : Install Apache, MySQL,PHP
+
+    For Apache2:
+    >>$sudo apt install apache2
