@@ -135,13 +135,13 @@ Steps for installing Moodle:-
 
 >>Open Browser and go to http://IP ADDRESS OF SERVER/ 
 
->>Follow the prompts:-
->>Change path for moodledata: /var/moodledata
->>Database type: mysqli
->>Host server: localhost
->>Database: write your database name that you mentioned in Mysql setup 
->>User: <Useername_same_as_you_created_in_mysql_setup>
->>Passsword: <password>
+    Follow the prompts:-
+    Change path for moodledata: /var/moodledata
+    Database type: mysqli
+    Host server: localhost
+    Database: write your database name that you mentioned in Mysql setup 
+    User: <Useername_same_as_you_created_in_mysql_setup>
+    Passsword: <password>
 
 If some unicode related error shows up
 
@@ -151,7 +151,7 @@ If some unicode related error shows up
 
 Further, Create site administration account:-
 
->>Create your moodle user account which will have all site administration permissions
->>Password you choose has to meet certain validations 
+    Create your moodle user account which will have all site administration permissions
+    Password you choose has to meet certain validations 
        
        
