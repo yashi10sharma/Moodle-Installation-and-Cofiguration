@@ -46,7 +46,7 @@ Steps for installing Moodle:-
 
 >>For Mysql:
     
-    $ sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
+    $sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe' 
     $sudo apt-get update
     $sudo apt install mysql-server-5.6 mysql-client-5.6
     
